@@ -1,0 +1,16 @@
+# Handoff-log bundle: register the packaged Skill root as an isolated filesystem
+# Skill provider row for DeepSeek Harness.
+#
+# `includeDefaultRoots: false` keeps this provider scoped to the bundle's own
+# Skill root, so it never rescans the project, custom, or user roots that the
+# profile's primary filesystem provider already covers.
+#
+# The root is resolved from the installed npm identity anchored at the DSH
+# profile (Loader baseUrl), never as a path concatenated onto baseUrl.
+- insert:
+    - id: handoff-log-skill-filesystem
+      name: '@deepseek-ai/dsh-skill-filesystem'
+      config:
+        providerName: handoff-log-plugin
+        includeDefaultRoots: false
+        bundledSkillDir: !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('dsh-handoff-log/package.json')), 'skills')

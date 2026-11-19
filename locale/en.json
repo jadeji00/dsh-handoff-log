@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Handoff log",
+    "description": "Adds the handoff-log skill. It creates and maintains a project handover record at the project root: AGENTS.md as the signpost every coding agent already reads, plus HANDOFF.md holding the goal and direction, current progress, next steps, and an append-only list of pitfalls with their fixes. Use it so any agent (Claude Code, Codex, Qoder, DSH, …) or human can take over a project mid-flight, and so several agents can work the same project without overwriting each other. Usage: ask the agent to initialize a handoff log when starting a project, to read and verify it before taking over, and to update it before finishing. It records project-level state only; environment-wide notes belong in the user's global profile, and secrets, tokens, and private configuration are never written into the handoff record. Turning the plugin off removes the skill and hides it from agents; files already created in project directories are left untouched."
+  }
+}
