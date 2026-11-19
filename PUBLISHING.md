@@ -50,7 +50,14 @@ fatal: unable to access 'https://github.com/jadeji00/dsh-handoff-log.git/': Fail
 1. 提交信息末尾**不能有换行** —— GitHub 会 trim，本地带 `\n` 就会被算出不同的 SHA。
 2. 提交的 author/committer 时区统一写 **`+0000`** —— GitHub 按 UTC 存，本地写 `+0800` 同样会算出不同 SHA。
 
-网络恢复后可以照常 `git push`；在此之前，先 `git write-tree` 得到树，用 `POST /git/blobs`、`POST /git/trees`、`POST /git/commits` 上传，最后 `PATCH /git/refs/heads/main` 指向新提交，再把本地 `refs/heads/main` 和 `refs/remotes/origin/main` 都 `update-ref` 到同一个 SHA。
+网络恢复后可以照常 `git push`；在此之前用仓库里的 `tools/push-via-api.mjs`（它把上面两个坑都处理好了）：
+
+```bash
+git add <改动的文件>
+node tools/push-via-api.mjs "commit message"
+```
+
+脚本会自己 `git write-tree`、上传 blob/tree、建 commit，并在 SHA 与本地一致时把 `refs/heads/main` 和 `refs/remotes/origin/main` 都指过去，所以 `git status` 一直是干净的。凭据从 Windows 凭据管理器（`git credential-wincred`）读，不落盘。换仓库/分支用环境变量 `REPO=owner/name BRANCH=dev`。
 
 ## 3. npm 包名（尚未发布）
 
