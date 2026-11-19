@@ -38,7 +38,7 @@ DSH 里打开 **插件** → **添加插件**，以下四种都认：
 | --- | --- |
 | 本地目录（**必须绝对路径**） | `E:\code\dsh-handoff-log` |
 | npm 包名（发布后） | `dsh-handoff-log` |
-| 仓库地址 | `https://github.com/<you>/dsh-handoff-log` |
+| 仓库地址 | `https://github.com/jadeji00/dsh-handoff-log` |
 | tarball | `E:\code\dsh-handoff-log-0.1.0.tgz` |
 
 命令行同样可以装，注意 `plugin` 后面必须带 `--profile`（参数会原样转发给 pnpm）：

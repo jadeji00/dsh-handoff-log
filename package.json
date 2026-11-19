@@ -30,6 +30,14 @@
     "multi-agent",
     "agents-md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jadeji00/dsh-handoff-log.git"
+  },
+  "homepage": "https://github.com/jadeji00/dsh-handoff-log#readme",
+  "bugs": {
+    "url": "https://github.com/jadeji00/dsh-handoff-log/issues"
+  },
   "engines": {
     "node": "^22.19.0 || >=24.0.0"
   },

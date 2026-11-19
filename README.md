@@ -38,7 +38,7 @@ In DSH: **Plugins** → **Add plugin**. Four kinds of target are accepted:
 | --- | --- |
 | Local directory (**absolute path required**) | `E:\code\dsh-handoff-log` |
 | npm package name (once published) | `dsh-handoff-log` |
-| Repository address | `https://github.com/<you>/dsh-handoff-log` |
+| Repository address | `https://github.com/jadeji00/dsh-handoff-log` |
 | Tarball | `E:\code\dsh-handoff-log-0.1.0.tgz` |
 
 From the CLI the same bundle installs through the plugin manager. `plugin` must be followed by `--profile`; the remaining arguments are forwarded to pnpm verbatim:
