@@ -32,13 +32,22 @@ Parallel work is covered too: one writer at a time, with a claim line for whoeve
 
 ## Install
 
-In DSH: **Plugins** → **Add plugin**, then give the package directory, the npm package name, or the repository address.
+In DSH: **Plugins** → **Add plugin**. Four kinds of target are accepted:
 
-From the CLI, the same bundle installs with the plugin manager using one target:
+| Target | Example |
+| --- | --- |
+| Local directory (**absolute path required**) | `E:\code\dsh-handoff-log` |
+| npm package name (once published) | `dsh-handoff-log` |
+| Repository address | `https://github.com/<you>/dsh-handoff-log` |
+| Tarball | `E:\code\dsh-handoff-log-0.1.0.tgz` |
+
+From the CLI the same bundle installs through the plugin manager. `plugin` must be followed by `--profile`; the remaining arguments are forwarded to pnpm verbatim:
 
 ```
-dsh plugin add /absolute/path/to/dsh-handoff-log
+dsh plugin --profile <profile-name> add /absolute/path/to/dsh-handoff-log
 ```
+
+The `desktop` profile shipped with the desktop app is managed exclusively by the Electron app, so the CLI refuses it (`profile "desktop" is managed exclusively by the Electron application`); use **Add plugin** there instead.
 
 ## What changes when it is turned off
 

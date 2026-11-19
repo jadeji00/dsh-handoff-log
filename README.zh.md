@@ -32,13 +32,22 @@ DeepSeek Harness 插件包，加载 **handoff-log** 技能：在项目目录里�
 
 ## 安装
 
-DSH 里打开 **插件** → **添加插件**，填包目录、npm 包名或仓库地址均可。
+DSH 里打开 **插件** → **添加插件**，以下四种都认：
 
-命令行同样可以装：
+| 填什么 | 例子 |
+| --- | --- |
+| 本地目录（**必须绝对路径**） | `E:\code\dsh-handoff-log` |
+| npm 包名（发布后） | `dsh-handoff-log` |
+| 仓库地址 | `https://github.com/<you>/dsh-handoff-log` |
+| tarball | `E:\code\dsh-handoff-log-0.1.0.tgz` |
+
+命令行同样可以装，注意 `plugin` 后面必须带 `--profile`（参数会原样转发给 pnpm）：
 
 ```
-dsh plugin add /absolute/path/to/dsh-handoff-log
+dsh plugin --profile <profile-name> add /absolute/path/to/dsh-handoff-log
 ```
+
+Desktop 版自带的 `desktop` profile 由图形应用独占管理，命令行会被拒绝（`profile "desktop" is managed exclusively by the Electron application`），那种情况直接用上面的「添加插件」。
 
 ## 关掉会怎样
 
